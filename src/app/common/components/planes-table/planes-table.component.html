@@ -1,0 +1,29 @@
+<div class="table-container border rounded p-1 mb-4">
+  @if (withFiltering) {
+    <app-filter (filteredValue)="onFilterChange($event)"/>
+  }
+  <table class="table table-striped table-sm table-hover">
+    <thead>
+    <tr class="header">
+      <th>ICAO</th>
+      <th>Speed ({{ speedUnit === 'kmph' ? 'kmph' : 'mph' }})</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Altitude</th>
+      <th>Timestamp</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (plane of visiblePlanesFrames; track plane.icao) {
+        <tr (click)="selectPlane(plane.icao)">
+          <td>{{ plane.icao }}</td>
+          <td>{{ speedUnit === 'kmph' ? plane.speed : (plane.speed | kphToMph) }}</td>
+          <td>{{ plane.lat }}</td>
+          <td>{{ plane.lon }}</td>
+          <td>{{ plane.alt }}</td>
+          <td>{{ plane.timestamp }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

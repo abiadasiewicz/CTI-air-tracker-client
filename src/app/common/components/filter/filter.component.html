@@ -1,0 +1,7 @@
+<form [formGroup]="filterForm">
+  <div class="input-group input-group-sm mb-3">
+    <label class="input-group-text" for="filterByICAO">Search by ICAO</label>
+    <input [formControlName]="'filterByICAO'" id = "filterByICAO" type="text" class="form-control input-sm" aria-label="Filter"
+           [placeholder]="'Search'">
+  </div>
+</form>

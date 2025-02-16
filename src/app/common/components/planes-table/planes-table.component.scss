@@ -1,0 +1,9 @@
+:host {
+  .table-container {
+    overflow-x: auto
+  }
+
+  tr:hover:not(.header) {
+    cursor: pointer;
+  }
+}
